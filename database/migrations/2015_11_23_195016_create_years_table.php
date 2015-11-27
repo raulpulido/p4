@@ -14,8 +14,11 @@ class CreateYearsTable extends Migration
     {
         Schema::create('years', function (Blueprint $table) 
         {
+             # Increments method will make a Primary, Auto-Incrementing field.
+            $table->increments('id');
+            
             $table->integer('year');
-            $table->primary('year');
+            
             # This generates two columns: `created_at` and `updated_at` to
             # keep track of changes to a row
             $table->timestamps();
