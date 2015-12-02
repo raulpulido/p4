@@ -10,8 +10,68 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+
+# Show login form
+Route::get('/login', 'Auth\AuthController@getLogin');
+
+# Process login form
+Route::post('/login', 'Auth\AuthController@postLogin');
+
+# Process logout
+Route::get('/logout', 'Auth\AuthController@getLogout');
+
+# Show registration form
+Route::get('/register', 'Auth\AuthController@getRegister');
+
+# Process registration form
+Route::post('/register', 'Auth\AuthController@postRegister');
+
+
+/*----------------------------------------------------
+/Companies
+-----------------------------------------------------*/
+Route::get('/companies', 'CompanyController@index');
+Route::get('/companies', 'CompanyController@create');
+
+/*Route::get('/books', 'BookController@getIndex');
+Route::get('/books/show/{title?}', 'BookController@getShow');
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/books/create', 'BookController@getCreate');
+    Route::post('/books/create', 'BookController@postCreate');
+    Route::get('/books/edit/{id?}', 'BookController@getEdit');
+    Route::post('/books/edit', 'BookController@postEdit');
+});*/
+/*----------------------------------------------------
+/Projects
+-----------------------------------------------------*/
+Route::get('/projects', 'ProjectController@getIndex');
+Route::get('/projects/show/{id?}', 'ProjectController@show');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::get('/books', [
+    'middleware' => 'auth',
+    'uses' => 'BookController@getCreate'
+]);
+
+Route::get('/p2',function() {
+	return view('pages.loremipsum');
+});
+
 Route::get('/',  function() {
-    echo '<h1>Project 4</h1>';
+	return view('pages.home');
 });
 
 Route::get('/debug', function() {
