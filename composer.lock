@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7041e5d658c9b387db5989bbbd118ceb",
-    "content-hash": "2df3ed88e9bd2469e2f0430ccd2b5981",
+    "hash": "e1cb884529d1f49ef457b4d972a27edf",
+    "content-hash": "4fec8d2f3ab0344ec691071dcf5f5ff4",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -903,182 +903,6 @@
             "time": "2015-01-11 23:07:46"
         },
         {
-            "name": "nayjest/builder",
-            "version": "v2.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Nayjest/Builder.git",
-                "reference": "bcb25e6b70657226dac5bdf2beafc1b66ff3071c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Nayjest/Builder/zipball/bcb25e6b70657226dac5bdf2beafc1b66ff3071c",
-                "reference": "bcb25e6b70657226dac5bdf2beafc1b66ff3071c",
-                "shasum": ""
-            },
-            "require": {
-                "nayjest/manipulator": "~1",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "codeclimate/php-test-reporter": "dev-master",
-                "mockery/mockery": "dev-master@dev",
-                "phpunit/phpunit": "4.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Nayjest\\Builder\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Vitalii Stepanenko",
-                    "email": "mail@vitaliy.in"
-                }
-            ],
-            "description": "PHP package for instantiating objects using configurations",
-            "time": "2015-06-04 19:28:54"
-        },
-        {
-            "name": "nayjest/grids",
-            "version": "v0.9.10",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Nayjest/Grids.git",
-                "reference": "038985a132e59250d117d4b292c501f6fb61c323"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Nayjest/Grids/zipball/038985a132e59250d117d4b292c501f6fb61c323",
-                "reference": "038985a132e59250d117d4b292c501f6fb61c323",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": ">=4.2",
-                "nayjest/builder": "~2",
-                "php": ">=5.4.0"
-            },
-            "suggest": {
-                "laravelcollective/html": "Required to work with Laravel 5.X",
-                "maatwebsite/excel": "Required to work with Excel export component"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Nayjest\\Grids\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Vitalii [Nayjest] Stepanenko",
-                    "email": "mail@vitaliy.in",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Grids for Laravel 4 & Laravel 5 frameworks",
-            "homepage": "https://github.com/Nayjest/Grids",
-            "keywords": [
-                "bootstrap",
-                "database",
-                "eloquent",
-                "grid",
-                "html",
-                "laravel",
-                "laravel-5",
-                "laravel5",
-                "tables"
-            ],
-            "time": "2015-11-24 18:31:06"
-        },
-        {
-            "name": "nayjest/manipulator",
-            "version": "v1.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Nayjest/manipulator.git",
-                "reference": "2151acc6ef1fc93955c35465513bb5e94c12c63b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Nayjest/manipulator/zipball/2151acc6ef1fc93955c35465513bb5e94c12c63b",
-                "reference": "2151acc6ef1fc93955c35465513bb5e94c12c63b",
-                "shasum": ""
-            },
-            "require": {
-                "nayjest/str-case-converter": "~1",
-                "php": ">=5.4"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.*"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Vitalii Stepanenko",
-                    "email": "mail@vitaliy.in"
-                }
-            ],
-            "description": "Utilities for manipulating PHP objects",
-            "time": "2015-10-23 14:15:00"
-        },
-        {
-            "name": "nayjest/str-case-converter",
-            "version": "v1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Nayjest/StrCaseConverter.git",
-                "reference": "e30f16afec3ed83e12369555e264263c23cf68bb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Nayjest/StrCaseConverter/zipball/e30f16afec3ed83e12369555e264263c23cf68bb",
-                "reference": "e30f16afec3ed83e12369555e264263c23cf68bb",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.*"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Vitalii Stepanenko",
-                    "email": "mail@vitaliy.in"
-                }
-            ],
-            "description": "Library for converting strings from camel case to snake case and vice versa.",
-            "time": "2015-06-04 13:11:29"
-        },
-        {
             "name": "nesbot/carbon",
             "version": "1.21.0",
             "source": {
@@ -1172,16 +996,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "19f765b66c6fbb56ee3b11bc16d52e38eebdc295"
+                "reference": "a208865a5aeffc2dbbef2a5b3409887272d93f32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/19f765b66c6fbb56ee3b11bc16d52e38eebdc295",
-                "reference": "19f765b66c6fbb56ee3b11bc16d52e38eebdc295",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/a208865a5aeffc2dbbef2a5b3409887272d93f32",
+                "reference": "a208865a5aeffc2dbbef2a5b3409887272d93f32",
                 "shasum": ""
             },
             "require": {
@@ -1216,7 +1040,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2015-11-10 00:45:41"
+            "time": "2015-12-01 02:52:15"
         },
         {
             "name": "psr/log",
@@ -2094,6 +1918,57 @@
                 "dump"
             ],
             "time": "2015-11-18 13:41:01"
+        },
+        {
+            "name": "twbs/bootstrap",
+            "version": "v3.3.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twbs/bootstrap.git",
+                "reference": "81df608a40bf0629a1dc08e584849bb1e43e0b7a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/81df608a40bf0629a1dc08e584849bb1e43e0b7a",
+                "reference": "81df608a40bf0629a1dc08e584849bb1e43e0b7a",
+                "shasum": ""
+            },
+            "replace": {
+                "twitter/bootstrap": "self.version"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.3.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jacob Thornton",
+                    "email": "jacobthornton@gmail.com"
+                },
+                {
+                    "name": "Mark Otto",
+                    "email": "markdotto@gmail.com"
+                }
+            ],
+            "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
+            "homepage": "http://getbootstrap.com",
+            "keywords": [
+                "JS",
+                "css",
+                "framework",
+                "front-end",
+                "less",
+                "mobile-first",
+                "responsive",
+                "web"
+            ],
+            "time": "2015-11-24 19:37:05"
         },
         {
             "name": "vlucas/phpdotenv",

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
+use App\Http\Requests\CompanyRequest;
 use App\Http\Controllers\Controller;
 
 class CompanyController extends Controller
@@ -27,7 +27,7 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.company.create');
     }
 
     /**
@@ -36,9 +36,11 @@ class CompanyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CompanyRequest $request)
     {
-        //
+		\App\Company::create($request->all());
+		
+		return redirect('/companies');
     }
 
     /**
@@ -60,7 +62,8 @@ class CompanyController extends Controller
      */
     public function edit($id)
     {
-        //
+        $companies = \App\Company::findOrFail($id);
+        return view('pages.company.edit',compact('companies'));
     }
 
     /**
@@ -70,9 +73,11 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CompanyRequest $request, $id)
     {
-        //
+        $companies = \App\Company::findOrFail($id);
+		$companies->update($request->all());
+		return redirect('/companies');
     }
 
     /**

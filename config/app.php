@@ -138,7 +138,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 		Illuminate\Html\HtmlServiceProvider::class,
 		Collective\Html\HtmlServiceProvider::class,
-		Nayjest\Grids\ServiceProvider::class,
+		
 
         /*
          * Application Service Providers...

@@ -6,34 +6,28 @@
 
     <h1>Login</h1>
 
-    @if(count($errors) > 0)
-        <ul class='errors'>
-            @foreach ($errors->all() as $error)
-                <li><span class='fa fa-exclamation-circle'></span> {{ $error }}</li>
-            @endforeach
-        </ul>
-    @endif
+ 	<div id="form_container">
+		<form method='POST' action='/login'>
+			@include('errors.list')
+			{!! csrf_field() !!}
 
-    <form method='POST' action='/login'>
+			<div class='form-group'>
+				<label for='email'>Email</label>
+				<input type='text' name='email' id='email' value='{{ old('email') }}'>
+			</div>
 
-        {!! csrf_field() !!}
+			<div class='form-group'>
+				<label for='password'>Password</label>
+				<input type='password' name='password' id='password' value='{{ old('password') }}'>
+			</div>
 
-        <div class='form-group'>
-            <label for='email'>Email</label>
-            <input type='text' name='email' id='email' value='{{ old('email') }}'>
-        </div>
+			<div class='form-group'>
+				<input type='checkbox' name='remember' id='remember'>
+				<label for='remember' class='checkboxLabel'>Remember me</label>
+			</div>
 
-        <div class='form-group'>
-            <label for='password'>Password</label>
-            <input type='password' name='password' id='password' value='{{ old('password') }}'>
-        </div>
+			<button type='submit' class='btn btn-primary'>Login</button>
 
-        <div class='form-group'>
-            <input type='checkbox' name='remember' id='remember'>
-            <label for='remember' class='checkboxLabel'>Remember me</label>
-        </div>
-
-        <button type='submit' class='btn btn-primary'>Login</button>
-
-    </form>
+		</form>
+	</div>
 @stop

@@ -3,6 +3,9 @@
 <meta name="author" content="Angel Pulido">
 <title>Developer's Best Friend</title>
 <link rel="stylesheet" href="{{URL::asset('css/style.css')}}" type="text/css" />
+<link rel="stylesheet" href="{{URL::asset('css/animate.css')}}" type="text/css" />
+<link rel="stylesheet" href="{{URL::asset('assets/css/animate.css')}}" type="text/css" />
+
     <!-- masthead -->
     <section id="masthead">
         <header id="Main">

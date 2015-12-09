@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\CreateOfficerRequest;
+use App\Http\Request\CreateDocument_TypeRequest;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class OfficerController extends Controller
+class Document_TypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class OfficerController extends Controller
      */
     public function index()
     {
-        $officers = \App\Officer::orderBy('last_name','DESC')->get();
-        return view('pages.officer.index', compact('officers'));
+        $documents_type = \App\Document_Type::orderBy('id','DESC')->get();
+        return view('pages.document_type.index',compact('documents_type'));
     }
 
     /**
@@ -27,7 +27,7 @@ class OfficerController extends Controller
      */
     public function create()
     {
-        return view('pages.officer.create');
+        return view('pages.document_type.create');
     }
 
     /**
@@ -36,11 +36,11 @@ class OfficerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateOfficerRequest $request)
+    public function store(CreateDocument_TypeRequest $request)
     {
-        \App\Officer::create($request->all());
+        \App\Document_Type::create($request->all());
 		
-		return redirect('/officers');
+		return redirect('/document_type');
     }
 
     /**

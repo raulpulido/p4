@@ -8,7 +8,7 @@
     </div>
     <div id="form_container"> <!-- Begin Form_Container -->
         {!! Form::open() !!}
-            <div class="Htmltable">
+            <div class="Htmltable animated  zoomIn">
 				@foreach($companies as $company)
 					<div id="title"><h3>{{ $company->company_name }}</h3></div>
 				<div id="title"><h3>{!! Form::select('id', $officers) !!}</h3></div>

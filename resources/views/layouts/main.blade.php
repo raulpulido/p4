@@ -1,8 +1,12 @@
 <!doctype html>
 <html>
+	
+
 <head>
 	<link rel="stylesheet" href="{{URL::asset('css/style.css')}}" type="text/css" />
 	<link rel="stylesheet" href="{{URL::asset('css/animate.css')}}" type="text/css" />
+	<title>iDMS Login Form</title>
+  	<link rel="stylesheet" href="css/login.css">
 	<div><img src="../img/iDMS-NJEDA-Logo.png" alt="logo" height="80" width="800"></div>
 </head>
 <body>
@@ -11,9 +15,6 @@
 @endif
 <div class="container">
 
-    <header class="row">
-        @include('includes.header')
-    </header>
 
     <div id="main" class="row">
 
@@ -21,12 +22,8 @@
 
     </div>
 
-    <footer class="row">
-        @include('includes.footer')
-    </footer>
 
 </div>
-		<!-- Scripts -->
-	{!! Html::script('assets/js/bootstrap.min.js') !!}
+
 </body>
 </html>

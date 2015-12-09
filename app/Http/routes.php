@@ -26,12 +26,21 @@ Route::get('/register', 'Auth\AuthController@getRegister');
 # Process registration form
 Route::post('/register', 'Auth\AuthController@postRegister');
 
+Route::get('/', function()
+{
+    return view('pages.login2');
+ });
 
 /*----------------------------------------------------
 /Companies
 -----------------------------------------------------*/
-Route::get('/companies', 'CompanyController@index');
-Route::get('/companies', 'CompanyController@create');
+Route::resource('/companies','CompanyController');
+
+/*Route::get('/companies',['as' => 'companyindex', 'uses' => 'CompanyController@index']);
+Route::get('/companies/edit/{id?}', 'CompanyController@update');
+Route::get('/companies/create', 'CompanyController@create');
+Route::post('/companies/create',['as' => 'companystore', 'uses' => 'CompanyController@store']);*/
+
 
 /*Route::get('/books', 'BookController@getIndex');
 Route::get('/books/show/{title?}', 'BookController@getShow');
@@ -41,71 +50,24 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/books/edit/{id?}', 'BookController@getEdit');
     Route::post('/books/edit', 'BookController@postEdit');
 });*/
+
+/*----------------------------------------------------
+/Officers
+-----------------------------------------------------*/
+
+Route::get('/officers',['as' => 'officerindex', 'uses' => 'OfficerController@index']);
+Route::get('/officers/create', 'OfficerController@create');
+Route::post('/officers/create',['as' => 'officerstore', 'uses' => 'OfficerController@store']);
 /*----------------------------------------------------
 /Projects
 -----------------------------------------------------*/
 Route::get('/projects', 'ProjectController@getIndex');
 Route::get('/projects/show/{id?}', 'ProjectController@show');
 
+/*----------------------------------------------------
+/Document Type
+-----------------------------------------------------*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-Route::get('/books', [
-    'middleware' => 'auth',
-    'uses' => 'BookController@getCreate'
-]);
-
-Route::get('/p2',function() {
-	return view('pages.loremipsum');
-});
-
-Route::get('/',  function() {
-	return view('pages.home');
-});
-
-Route::get('/debug', function() {
-
-    echo '<pre>';
-
-    echo '<h1>Environment</h1>';
-    echo App::environment().'</h1>';
-
-    echo '<h1>Debugging?</h1>';
-    if(config('app.debug')) echo "Yes"; else echo "No";
-
-    echo '<h1>Database Config</h1>';
-    /*
-    The following line will output your MySQL credentials.
-    Uncomment it only if you're having a hard time connecting to the database and you
-    need to confirm your credentials.
-    When you're done debugging, comment it back out so you don't accidentally leave it
-    running on your live server, making your credentials public.
-    */
-    //print_r(config('database.connections.mysql'));
-
-    echo '<h1>Test Database Connection</h1>';
-    try {
-        $results = DB::select('SHOW DATABASES;');
-        echo '<strong style="background-color:green; padding:5px;">Connection confirmed</strong>';
-        echo "<br><br>Your Databases:<br><br>";
-        print_r($results);
-    }
-    catch (Exception $e) {
-        echo '<strong style="background-color:crimson; padding:5px;">Caught exception: ', $e->getMessage(), "</strong>\n";
-    }
-
-    echo '</pre>';
-
-});
-
+Route::get('/document_type',['as' => 'document_typeindex', 'uses' => 'Document_TypeController@index']);
+Route::get('/document_type/create', 'document_typeController@create');
+Route::post('/document_type/create',['as' => 'document_typestore', 'uses' => 'Document_TypeController@store']);

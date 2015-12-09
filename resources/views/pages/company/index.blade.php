@@ -4,17 +4,9 @@
       <div id="title"><h2>Companies</h2></div>
     </div>
     <div id="form_container"> <!-- Begin Form_Container -->
-        {!! Form::open() !!}
-			@if (count($errors) > 0)
-				<div class="alert alert-danger">
-					<ul>
-						@foreach ($errors->all() as $error)
-							<li>{{ $error }}</li>
-						@endforeach
-					</ul>
-				</div>
-			@endif
-            <div class="Htmltable">
+     <!--   {!! Form::open() !!} -->
+			@include('errors.list')
+            <div class="Htmltable animated  zoomIn">
 				<table>
 					<tr>
 						<td>Company ID</td>
@@ -24,12 +16,12 @@
 					</tr>
                 @foreach($companies as $company)
 					<tr>
-						<td >{{ $company->id }}</td>
+						<td>{{ $company->id }}</td>
 						<td>{{ $company->company_name }}</td>
 						<td>{{ $company->tax_id }}</td>
 						<td>{{ $company->contact }}</td>
 						<td>
-							<a href='/companies/edit/{{$company->id}}' class="button blue">Edit</a>
+							<a href='/companies/{{$company->id}}/edit' class="button blue">Edit</a>
 						    <a href='/companies/edit/{{$company->id}}' class="button blue">Delete</a>
 						</td>
 						<td>
@@ -40,11 +32,11 @@
 				@endforeach
 				</table>
 				<br><br>
-				<div><a href='/companies/edit/{{$company->id}}' class="button grey">Create New Company</a></div>
+				<div><a href='{{ action('CompanyController@create')}}' class="button grey">Create New Company</a></div>
 				<br>
             </div> <!--End Htmltable Container -->
             <br>
-        {!! Form::close() !!}
+    <!--    {!! Form::close() !!} -->
     </div> <!--End Form_Container -->
     <br><br>
 @stop
