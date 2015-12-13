@@ -1,12 +1,13 @@
 @extends('layouts.default')
 @section('content')
     <div id="form_container">
-      <div id="title"><h2>Add New Company</h2></div>
+      <div id="title"><h2>Edit Officer</h2></div>
     </div>
     <div id="form_container"> <!-- Begin Form_Container -->
-        {!! Form::open(array('action' => ['CompanyController@store'])) !!}
+        {!! Form::model($officers,['method' => 'PATCH', 'action' => ['OfficerController@update', $officers->id]]) !!}
 			@include('errors.list')
-			@include('pages.company.form', ['submitButtonText'=>'Add Company'])
+			@include('pages.officer.form', ['submitButtonText'=>'Update Officer'])
+
         {!! Form::close() !!}
     </div> <!--End Form_Container -->
     <br><br>

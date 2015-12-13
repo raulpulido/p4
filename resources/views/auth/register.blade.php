@@ -1,20 +1,15 @@
-@extends('layouts.default')
+@extends('layouts.main')
 
 @section('content')
-
+  <div class="form_container_login">
     <p>Already have an account? <a href='/login'>Login here...</a></p>
 
     <h1>Register</h1>
 
-    @if(count($errors) > 0)
-        <ul class='errors'>
-            @foreach ($errors->all() as $error)
-                <li><span class='fa fa-exclamation-circle'></span> {{ $error }}</li>
-            @endforeach
-        </ul>
-    @endif
+
 
     <form method='POST' action='/register'>
+		@include('errors.list')
         {!! csrf_field() !!}
 
         <div class='form-group'>
@@ -37,8 +32,8 @@
             <input type='password' name='password_confirmation' id='password_confirmation'>
         </div>
 
-        <button type='submit' class='btn btn-primary'>Register</button>
+        <button type='submit' class='button blue'>Register</button>
 
     </form>
-
+</div>
 @stop

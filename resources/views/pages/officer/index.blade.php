@@ -5,15 +5,7 @@
     </div>
     <div id="form_container"> <!-- Begin Form_Container -->
         {!! Form::open() !!}
-			@if (count($errors) > 0)
-				<div class="alert alert-danger">
-					<ul>
-						@foreach ($errors->all() as $error)
-							<li>{{ $error }}</li>
-						@endforeach
-					</ul>
-				</div>
-			@endif
+			@include('errors.list')
             <div class="Htmltable animated  zoomIn">
 				<table>
 					<tr>
@@ -27,7 +19,7 @@
 						<td>{{ $officer->first_name }}</td>
 						<td>{{ $officer->email }}</td>
 						<td>
-							<a href='{{ action('OfficerController@index',[$officer->id]) }}' class="button blue">Edit</a>
+							<a href='{{ action('OfficerController@edit',[$officer->id]) }}' class="button blue">Edit</a>
 						    <a href='/companies/edit/{{$officer->id}}' class="button blue">Delete</a>
 						</td>
 					</tr>

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\CreateOfficerRequest;
+use App\Http\Requests\OfficerRequest;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -36,7 +36,7 @@ class OfficerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateOfficerRequest $request)
+    public function store(OfficerRequest $request)
     {
         \App\Officer::create($request->all());
 		
@@ -62,7 +62,8 @@ class OfficerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $officers = \App\Officer::findOrFail($id);
+        return view('pages.officer.edit',compact('officers'));
     }
 
     /**
@@ -72,9 +73,12 @@ class OfficerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(OfficerRequest $request, $id)
     {
-        //
+        $officers = \App\Officer::findOrFail($id);
+		$officers->update($request->all());
+		//Session::flash('flash_message', 'Officer successfully updated!');
+		return redirect('/officers');
     }
 
     /**

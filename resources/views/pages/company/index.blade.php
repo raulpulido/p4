@@ -22,7 +22,10 @@
 						<td>{{ $company->contact }}</td>
 						<td>
 							<a href='/companies/{{$company->id}}/edit' class="button blue">Edit</a>
-						    <a href='/companies/edit/{{$company->id}}' class="button blue">Delete</a>
+						<!--	<a href='{!! Form::open(['method' => 'DELETE','route' => ['companies.destroy', $company->id]]) !!}
+            				{!! Form::submit('Delete this company?', ['class' => 'button blue']) !!}
+        					{!! Form::close() !!}'  class="button blue">Delete Company</a>-->
+									    
 						</td>
 						<td>
 							<a href='/companies/edit/{{$company->id}}' class="button blue">Add Project</a>

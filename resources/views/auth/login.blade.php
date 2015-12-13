@@ -1,12 +1,11 @@
-@extends('layouts.default')
+@extends('layouts.main')
 
 @section('content')
 
-    <p>Don't have an account? <a href='/register'>Register here...</a></p>
+    <div class="form_container_login">
+		<div><h1>Login</h1></div>
 
-    <h1>Login</h1>
-
- 	<div id="form_container">
+		
 		<form method='POST' action='/login'>
 			@include('errors.list')
 			{!! csrf_field() !!}
@@ -25,8 +24,10 @@
 				<input type='checkbox' name='remember' id='remember'>
 				<label for='remember' class='checkboxLabel'>Remember me</label>
 			</div>
-
-			<button type='submit' class='btn btn-primary'>Login</button>
+			
+			<button type='submit' class='button blue'>Login</button>
+			
+			 <p>Don't have an account? <a href='/register'>Register here...</a></p>
 
 		</form>
 	</div>

@@ -28,8 +28,27 @@ Route::post('/register', 'Auth\AuthController@postRegister');
 
 Route::get('/', function()
 {
-    return view('pages.login2');
+    return view('auth.login');
  });
+
+Route::get('/home', function()
+{
+    return view('pages.home');
+ });
+
+
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/companies/create', 'CompanyController@create');
+    Route::post('/officers/create', 'OfficerController@create');
+    //Route::get('/books/edit/{id?}', 'BookController@getEdit');
+    //Route::post('/books/edit', 'BookController@postEdit');
+    //Route::get('/books/confirm-delete/{id?}', 'BookController@getConfirmDelete');
+    //Route::get('/books/delete/{id?}', 'BookController@getDoDelete');
+    //Route::get('/books', 'BookController@getIndex');
+    //Route::get('/books/show/{title?}', 'BookController@getShow');
+});
+
+
 
 /*----------------------------------------------------
 /Companies
@@ -54,20 +73,22 @@ Route::group(['middleware' => 'auth'], function() {
 /*----------------------------------------------------
 /Officers
 -----------------------------------------------------*/
+Route::resource('/officers','OfficerController');
 
-Route::get('/officers',['as' => 'officerindex', 'uses' => 'OfficerController@index']);
+/*Route::get('/officers',['as' => 'officerindex', 'uses' => 'OfficerController@index']);
 Route::get('/officers/create', 'OfficerController@create');
-Route::post('/officers/create',['as' => 'officerstore', 'uses' => 'OfficerController@store']);
+Route::post('/officers/create',['as' => 'officerstore', 'uses' => 'OfficerController@store']);*/
 /*----------------------------------------------------
 /Projects
 -----------------------------------------------------*/
-Route::get('/projects', 'ProjectController@getIndex');
-Route::get('/projects/show/{id?}', 'ProjectController@show');
+Route::resource('/projects','ProjectController');
+/*Route::get('/projects', 'ProjectController@getIndex');
+Route::get('/projects/show/{id?}', 'ProjectController@show');*/
 
 /*----------------------------------------------------
 /Document Type
 -----------------------------------------------------*/
-
-Route::get('/document_type',['as' => 'document_typeindex', 'uses' => 'Document_TypeController@index']);
+Route::resource('/document_type','Document_TypeController');
+/*Route::get('/document_type',['as' => 'document_typeindex', 'uses' => 'Document_TypeController@index']);
 Route::get('/document_type/create', 'document_typeController@create');
-Route::post('/document_type/create',['as' => 'document_typestore', 'uses' => 'Document_TypeController@store']);
+Route::post('/document_type/create',['as' => 'document_typestore', 'uses' => 'Document_TypeController@store']);*/

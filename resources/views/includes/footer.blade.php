@@ -1,1 +1,1 @@
-<div id="copyright text-right">© Copyright 2015 Angel Raul Pulido - Project 3 - Dynamic Web Applications - Harvard University </div>
+<div id="copyright text-right">© Copyright 2015 Angel Raul Pulido - Project 4 - Dynamic Web Applications - Harvard University </div>

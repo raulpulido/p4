@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class CreateOfficerRequest extends Request
+class Document_TypeRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,10 +23,8 @@ class CreateOfficerRequest extends Request
      */
     public function rules()
     {
-         return [
-            'first_name' =>'required',
-			'last_name' =>'required',
-			'email' =>'required|email',
+        return [
+            'document_name' =>'required',
         ];
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use App\Http\Controllers\Session;
 use App\Http\Requests\CompanyRequest;
 use App\Http\Controllers\Controller;
 
@@ -77,6 +78,7 @@ class CompanyController extends Controller
     {
         $companies = \App\Company::findOrFail($id);
 		$companies->update($request->all());
+		flash()->info('Company successfully updated!');
 		return redirect('/companies');
     }
 
@@ -88,6 +90,12 @@ class CompanyController extends Controller
      */
     public function destroy($id)
     {
-        //
+     	$company = \App\Company::findOrFail($id);
+		dd($company);
+    	$company->delete();
+
+    	Session::flash('flash_message', 'Company successfully deleted!');
+
+    	return redirect('/companies');
     }
 }

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Request\CreateDocument_TypeRequest;
+use App\Http\Request\Document_TypeRequest;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -36,7 +36,7 @@ class Document_TypeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateDocument_TypeRequest $request)
+    public function store(Document_TypeRequest $request)
     {
         \App\Document_Type::create($request->all());
 		
@@ -62,7 +62,8 @@ class Document_TypeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $documents = \App\Document_Type::findOrFail($id);
+        return view('pages.documents_type.edit',compact('documents'));//
     }
 
     /**
@@ -72,9 +73,12 @@ class Document_TypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Document_TypeRequest $request, $id)
     {
-        //
+        $documents = \App\Document_Type::findOrFail($id);
+		$documents->update($request->all());
+		//Session::flash('flash_message', 'Document Type successfully updated!');
+		return redirect('/document_type');
     }
 
     /**
