@@ -37,7 +37,7 @@ iDMS is a web application for NJEDA (New Jersey Economic Development Authority) 
 	* "pojects"			- Table containing project information data
 	* "project year" 	- Pivol Table create for the many to many relations between projects and years
 
-* ** Server Side Validation - Request:**
+* **Server Side Validation - Request:**
 	
     *** Note: The system has implementation of view partials and form reuse, in order to reuse the requests for create and update events, I name them with the name of the model only instead of add "Create" or "Update" word. ***
 	  
