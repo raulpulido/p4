@@ -35,16 +35,11 @@ Route::get('/home', function()
 {
     return view('pages.home');
  });
-Route::get('/project_year/edit/{id?}/{id2?}', array('as'=>'annualreport', 'uses'=> 'ProjectYearController@edit'));
-//Route::get('','ProjectYearController@edit');
-Route::get('/project_year/show/{id?}','ProjectYearController@show');
 
-Route::resource('/project_year','ProjectYearController');
 /*----------------------------------------------------
 /Companies
 -----------------------------------------------------*/
 Route::group(['middleware' => 'auth'], function() {
-	//Route::get('/companies/show/{id?}','CompanyController@show');
 	Route::get('/companies/confirm-delete/{id?}', 'CompanyController@ConfirmDelete');
 	Route::get('/companies/delete/{id?}', 'CompanyController@delete');
 	Route::resource('/companies','CompanyController');

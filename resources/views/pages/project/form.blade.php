@@ -4,13 +4,10 @@
 	{!! Form::hidden('company_id',$companies->id) !!}
 	{!! Form::hidden('company_name',$companies->company_name) !!}
 </div>
-
 <div class="form-group">
 	{!! Form::label('officer_drowdown','Officers:') !!}
 	{!! Form::select('officer_id', $officers_for_dropdown) !!}
 </div>
-
-
 <div class="form-group">
 	{!! Form::label('NEC','NEC:') !!}
 	{!! Form::text('new_employment_commit',null,['class' =>'form-control']) !!}

@@ -1,5 +1,4 @@
 @extends('layouts.default')
-
 @section('content')
 	<div id="form_container">
 		<div id="title"><h2>Show Company</h2></div>
