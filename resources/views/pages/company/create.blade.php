@@ -6,7 +6,7 @@
     <div id="form_container"> <!-- Begin Form_Container -->
         {!! Form::open(array('action' => ['CompanyController@store'])) !!}
 			@include('errors.list')
-			@include('pages.company.form', ['submitButtonText'=>'Add Company'])
+			@include('pages.company.form', ['submitButtonText'=>'Save Company'])
         {!! Form::close() !!}
     </div> <!--End Form_Container -->
     <br><br>

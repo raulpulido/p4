@@ -1,12 +1,13 @@
 @extends('layouts.default')
+
 @section('content')
     <div id="form_container">
-      <div id="title"><h2>Add Officer</h2></div>
+      <div id="title"><h2>Edit Year</h2></div>
     </div>
     <div id="form_container"> <!-- Begin Form_Container -->
-        {!! Form::open(array('action' => ['OfficerController@store'])) !!}
+        {!! Form::model($years,['method' => 'PATCH', 'action' => ['YearController@update', $years->id]]) !!}
 			@include('errors.list')
-			@include('pages.officer.form', ['submitButtonText'=>'Save Officer'])
+			@include('pages.year.form', ['submitButtonText'=>'Update Year'])
         {!! Form::close() !!}
     </div> <!--End Form_Container -->
     <br><br>

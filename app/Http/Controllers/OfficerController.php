@@ -38,8 +38,8 @@ class OfficerController extends Controller
      */
     public function store(OfficerRequest $request)
     {
-        \App\Officer::create($request->all());
-		
+        $officer= \App\Officer::create($request->all());
+		flash()->success('Officer '.$officer->last_name.','.$officer->first_name.' successfully added!');
 		return redirect('/officers');
     }
 
@@ -51,7 +51,8 @@ class OfficerController extends Controller
      */
     public function show($id)
     {
-        //
+		$officers = \App\Officer::findOrFail($id);
+        return view('pages.officer.show',compact('officers'));
     }
 
     /**
@@ -77,18 +78,41 @@ class OfficerController extends Controller
     {
         $officers = \App\Officer::findOrFail($id);
 		$officers->update($request->all());
-		//Session::flash('flash_message', 'Officer successfully updated!');
+		flash()->success('Officer '.$officers->last_name.','.$officers->first_name.' successfully updated!');
 		return redirect('/officers');
     }
 
-    /**
+     public function delete($id)
+    {
+     	# Get the Officer to be deleted
+     	$officer = \App\Officer::findOrFail($id);
+		
+		if(is_null($officer)) {
+			flash()->info('Officer not found.');
+			return redirect('/officers');
+		}
+		
+		
+		# First remove any project associated with this officer
+
+		if($officer->projects()){
+			$officer->projects()->delete();
+		}
+		# Then delete the officer
+		$officer->delete();
+		flash()->success('Officer '.$officer->last_name.','.$officer->first_name.' was deleted!');
+    	return redirect('/officers');
+    }
+	    /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function ConfirmDelete($id)
     {
-        //
+		# Get the Officer to be deleted
+     	$officer = \App\Officer::findOrFail($id);
+		return view('pages.officer.delete',compact('officer'));
     }
 }

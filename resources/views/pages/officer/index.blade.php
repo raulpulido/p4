@@ -13,17 +13,18 @@
 						<td>First Name</td>
 						<td>E-mail </td>
 					</tr>
-                @foreach($officers as $officer)
-					<tr>
-						<td>{{ $officer->last_name }}</td>
-						<td>{{ $officer->first_name }}</td>
-						<td>{{ $officer->email }}</td>
-						<td>
-							<a href='{{ action('OfficerController@edit',[$officer->id]) }}' class="button blue">Edit</a>
-						    <a href='/companies/edit/{{$officer->id}}' class="button blue">Delete</a>
-						</td>
-					</tr>
-				@endforeach
+					@foreach($officers as $officer)
+						<tr>
+							<td>{{ $officer->last_name }}</td>
+							<td>{{ $officer->first_name }}</td>
+							<td>{{ $officer->email }}</td>
+							<td>
+								<a href='{{ action('OfficerController@show',[$officer->id]) }}' class="button blue">show</a>
+								<a href='{{ action('OfficerController@edit',[$officer->id]) }}' class="button blue">Edit</a>
+								<a href='/officers/confirm-delete/{{ $officer->id}}'  class="button blue">Delete</a>
+							</td>
+						</tr>
+					@endforeach
 				</table>
 				<br><br>
 				<div><a href='{{ action('OfficerController@create')}}' class="button grey">Create New officer</a></div>

@@ -12,4 +12,5 @@
 </div>
 <div class="form-group">
 	{!! Form::submit($submitButtonText,['class' =>'button grey']) !!}
+	<a href='/officers' class="button grey">Back to Officers</a>
 </div>

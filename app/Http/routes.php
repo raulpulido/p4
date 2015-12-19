@@ -35,60 +35,59 @@ Route::get('/home', function()
 {
     return view('pages.home');
  });
+Route::get('/project_year/edit/{id?}/{id2?}', array('as'=>'annualreport', 'uses'=> 'ProjectYearController@edit'));
+//Route::get('','ProjectYearController@edit');
+Route::get('/project_year/show/{id?}','ProjectYearController@show');
 
-
-Route::group(['middleware' => 'auth'], function() {
-    Route::get('/companies/create', 'CompanyController@create');
-    Route::post('/officers/create', 'OfficerController@create');
-    //Route::get('/books/edit/{id?}', 'BookController@getEdit');
-    //Route::post('/books/edit', 'BookController@postEdit');
-    //Route::get('/books/confirm-delete/{id?}', 'BookController@getConfirmDelete');
-    //Route::get('/books/delete/{id?}', 'BookController@getDoDelete');
-    //Route::get('/books', 'BookController@getIndex');
-    //Route::get('/books/show/{title?}', 'BookController@getShow');
-});
-
-
-
+Route::resource('/project_year','ProjectYearController');
 /*----------------------------------------------------
 /Companies
 -----------------------------------------------------*/
-Route::resource('/companies','CompanyController');
-
-/*Route::get('/companies',['as' => 'companyindex', 'uses' => 'CompanyController@index']);
-Route::get('/companies/edit/{id?}', 'CompanyController@update');
-Route::get('/companies/create', 'CompanyController@create');
-Route::post('/companies/create',['as' => 'companystore', 'uses' => 'CompanyController@store']);*/
-
-
-/*Route::get('/books', 'BookController@getIndex');
-Route::get('/books/show/{title?}', 'BookController@getShow');
 Route::group(['middleware' => 'auth'], function() {
-    Route::get('/books/create', 'BookController@getCreate');
-    Route::post('/books/create', 'BookController@postCreate');
-    Route::get('/books/edit/{id?}', 'BookController@getEdit');
-    Route::post('/books/edit', 'BookController@postEdit');
-});*/
+	//Route::get('/companies/show/{id?}','CompanyController@show');
+	Route::get('/companies/confirm-delete/{id?}', 'CompanyController@ConfirmDelete');
+	Route::get('/companies/delete/{id?}', 'CompanyController@delete');
+	Route::resource('/companies','CompanyController');
+});
 
 /*----------------------------------------------------
 /Officers
 -----------------------------------------------------*/
-Route::resource('/officers','OfficerController');
-
-/*Route::get('/officers',['as' => 'officerindex', 'uses' => 'OfficerController@index']);
-Route::get('/officers/create', 'OfficerController@create');
-Route::post('/officers/create',['as' => 'officerstore', 'uses' => 'OfficerController@store']);*/
+Route::group(['middleware' => 'auth'], function() {	
+	Route::get('/officers/confirm-delete/{id?}', 'OfficerController@ConfirmDelete');
+	Route::get('/officers/delete/{id?}', 'OfficerController@delete');
+	Route::resource('/officers','OfficerController');
+});
 /*----------------------------------------------------
 /Projects
 -----------------------------------------------------*/
-Route::resource('/projects','ProjectController');
-/*Route::get('/projects', 'ProjectController@getIndex');
-Route::get('/projects/show/{id?}', 'ProjectController@show');*/
-
+Route::group(['middleware' => 'auth'], function() {	
+	Route::get('/projects/create/{id?}','ProjectController@create');
+	Route::get('/projects/edit/{id?}','ProjectController@edit');
+	Route::get('/projects/confirm-delete/{id?}', 'ProjectController@ConfirmDelete');
+	Route::get('/projects/delete/{id?}', 'ProjectController@delete');
+	Route::get('/projects/show/{id?}','ProjectController@show');
+	Route::resource('/projects','ProjectController');
+});
 /*----------------------------------------------------
-/Document Type
+/Years
 -----------------------------------------------------*/
-Route::resource('/document_type','Document_TypeController');
-/*Route::get('/document_type',['as' => 'document_typeindex', 'uses' => 'Document_TypeController@index']);
-Route::get('/document_type/create', 'document_typeController@create');
-Route::post('/document_type/create',['as' => 'document_typestore', 'uses' => 'Document_TypeController@store']);*/
+Route::group(['middleware' => 'auth'], function() {	
+	Route::get('/years/create/{id?}','YearController@create');
+	Route::get('/years/edit/{id?}','YearController@edit');
+	Route::get('/years/confirm-delete/{id?}', 'YearController@ConfirmDelete');
+	Route::get('/years/delete/{id?}', 'YearController@delete');
+	Route::get('/years/show/{id?}','YearController@show');
+	Route::resource('/years','YearController');
+});
+/*----------------------------------------------------
+/Annual Report
+-----------------------------------------------------*/
+/*Route::group(['middleware' => 'auth'], function() {	
+	Route::get('/years/create/{id?}','YearController@create');
+	Route::get('/years/edit/{id?}','YearController@edit');
+	Route::get('/years/confirm-delete/{id?}', 'YearController@ConfirmDelete');
+	Route::get('/years/delete/{id?}', 'YearController@delete');
+	Route::get('/years/show/{id?}','YearController@show');
+	Route::resource('/years','YearController');
+});*/

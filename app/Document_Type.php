@@ -10,10 +10,5 @@ class Document_Type extends Model
 		'document_name'
 	];
 		
-	
-    public function annual_report() {
-        # Year has many Annual Report
-        # Define a one-to-many relationship.
-        return $this->hasMany('\App\Annual_Report');
-    }
+
 }

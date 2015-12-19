@@ -25,9 +25,9 @@ class CreateSupportingDocumentsTable extends Migration
             $table->string('document_name');
             $table->string('path');
             $table->integer('project_id')->unsigned();
-            $table->integer('year')->unsigned();
-            //$table->foreign('project_id')->references('id')->on('projects');
-            //$table->foreign('year')->references('year')->on('years');
+            $table->integer('year_id')->unsigned();
+            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
+            $table->foreign('year_id')->references('id')->on('years')->onDelete('cascade');
         });
     }
 

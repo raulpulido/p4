@@ -14,55 +14,64 @@ class YearsTableSeeder extends Seeder
         DB::table('years')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'year' => 2008,
+            'year' 		 => 2008,
+			'cpi' 		 => 4.5,
         ]);
         
         DB::table('years')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'year' => 2009,
+			'cpi' 		 => 4.0,
         ]);
         
         DB::table('years')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'year' => 2010,
+			'cpi' 		 => 4.3,
         ]);
         
         DB::table('years')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'year' => 2011
+            'year' => 2011,
+			'cpi' 		 => 1.5
         ]);
         
         DB::table('years')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'year' => 2012
+            'year' => 2012,
+			'cpi' 		 => 2.6,
         ]);
         
         DB::table('years')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'year' => 2013
+            'year' => 2013,
+			'cpi' 		 => 3.4,
         ]);
         
         DB::table('years')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'year' => 2014
+            'year' => 2014,
+			'cpi' 		 => 5.9,
         ]);
         
         DB::table('years')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'year' => 2015
+            'year' => 2015,
+			'cpi' 		 => 4.5,
         ]);
         
-        DB::table('years')->insert([
+ /*       DB::table('years')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'year' => 2016
+			'cpi' 		 => 4.7,
         ]);
         
         DB::table('years')->insert([
@@ -117,6 +126,6 @@ class YearsTableSeeder extends Seeder
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'year' => 2025
-        ]);
+        ]);*/
     }
 }

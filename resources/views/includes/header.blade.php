@@ -4,7 +4,7 @@
 					<li><a href="/home">Home</a></li>
 					<li><a href="/companies">Companies</a></li>
 					<li><a href="/officers">Officers</a></li>
-					<li><a href="/document_type">Documents Type</a></li>
+					<li><a href="/years">Years</a></li>
 					<li><a href="/logout">Log out : {{ $user->name }} </a></li>
 				@else
 					<li><a href="/">Home</a></li>

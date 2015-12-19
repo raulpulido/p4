@@ -12,15 +12,15 @@ class Officer extends Model
 		'email'
 	];
 		
-    public function project() {
+    public function projects() {
         # Officer has many Projects
         # Define a one-to-many relationship.
         return $this->hasMany('\App\Project');
     }
 	
 	public function getOfficerForDropdown(){
-		
-		$officers=$this->orderby('last_name','ASC')->get();
+	
+		$officers=$this->orderBy('last_name','ASC')->get();
 		$officers_for_dropdown=[];
 		foreach($officers as $officer) {
 			$officers_for_dropdown[$officer->id]= $officer->last_name.','.$officer->first_name;

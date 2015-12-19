@@ -6,9 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Year extends Model
 {
-    public function annual_report() {
-        # Year has many Annual Report
-        # Define a one-to-many relationship.
-        return $this->hasMany('\App\Annual_Report');
+	protected $fillable= [
+		'year',
+		'cpi',
+	];
+    public function projects() {
+     # Year has many projects
+        # Define a many-to-many relationship.
+       	return $this->belongsToMany('\App\Project');
     }
 }

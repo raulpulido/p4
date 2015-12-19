@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class CreateProjectRequest extends Request
+class AnnualReportRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class CreateProjectRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class CreateProjectRequest extends Request
     public function rules()
     {
         return [
-            //
+            'total_nj_employees' =>'required',
+			'award_percent' =>'required',
+			'total_beilp_employees' =>'required',
+			'total_terminations' =>'required',
+			'adjust_nec' =>'required',
         ];
     }
 }

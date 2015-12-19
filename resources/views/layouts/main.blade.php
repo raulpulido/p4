@@ -14,7 +14,9 @@
 	<div>{{ Session::get('flash_message')}}</div>
 @endif
 <div class="container">
-
+	<div id="main" class="row">
+			@include('flash::message')
+		</div>
 
     <div id="main" class="row">
 
@@ -24,6 +26,9 @@
 
 
 </div>
-
+	<script src="//code.jquery.com/jquery.js"></script>
+	<script>
+		$('div.alert').delay(6000).slideUp(600);
+	</script>
 </body>
 </html>

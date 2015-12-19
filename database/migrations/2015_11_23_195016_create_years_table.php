@@ -18,6 +18,7 @@ class CreateYearsTable extends Migration
             $table->increments('id');
             
             $table->integer('year');
+			$table->decimal('cpi',5,2);
             
             # This generates two columns: `created_at` and `updated_at` to
             # keep track of changes to a row

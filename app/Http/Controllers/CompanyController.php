@@ -39,8 +39,8 @@ class CompanyController extends Controller
      */
     public function store(CompanyRequest $request)
     {
-		\App\Company::create($request->all());
-		
+		$company = \App\Company::create($request->all());
+		flash()->success('Company '.$company->company_name.' successfully added!');
 		return redirect('/companies');
     }
 
@@ -52,7 +52,8 @@ class CompanyController extends Controller
      */
     public function show($id)
     {
-        //
+        $companies = \App\Company::findOrFail($id);
+        return view('pages.company.show',compact('companies'));
     }
 
     /**
@@ -78,7 +79,8 @@ class CompanyController extends Controller
     {
         $companies = \App\Company::findOrFail($id);
 		$companies->update($request->all());
-		flash()->info('Company successfully updated!');
+		flash()->success('Company '.$companies->company_name.' successfully updated!');
+		#dd(flash());
 		return redirect('/companies');
     }
 
@@ -88,14 +90,36 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
+     	# Get the Company to be deleted
      	$company = \App\Company::findOrFail($id);
-		dd($company);
-    	$company->delete();
-
-    	Session::flash('flash_message', 'Company successfully deleted!');
-
+		
+		if(is_null($company)) {
+			flash()->info('Company not found.');
+			return redirect('/companies');
+		}
+		
+		
+		# First remove any project associated with this company
+		if($company->projects()){
+			$company->projects()->delete();
+		}
+		# Then delete the company
+		$company->delete();
+		flash()->success('Company '.$company->company_name.' was deleted!');
     	return redirect('/companies');
+    }
+	    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function ConfirmDelete($id)
+    {
+		# Get the Company to be deleted
+     	$company = \App\Company::findOrFail($id);
+		return view('pages.company.delete',compact('company'));
     }
 }

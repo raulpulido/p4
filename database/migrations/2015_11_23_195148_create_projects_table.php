@@ -26,8 +26,8 @@ class CreateProjectsTable extends Migration
             $table->integer('award_percent');
             $table->integer('company_id')->unsigned();
             $table->integer('officer_id')->unsigned();
-            //$table->foreign('company_id')->references('id')->on('companies');
-            //$table->foreign('officer_id')->references('id')->on('officers');
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
+            $table->foreign('officer_id')->references('id')->on('officers')->onDelete('cascade');
         });
     }
 

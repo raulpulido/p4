@@ -13,7 +13,7 @@ class Company extends Model
 		'email'
 	];
 		
-    public function project() {
+    public function projects() {
         # Company has many Projects
         # Define a one-to-many relationship.
         return $this->hasMany('\App\Project');
