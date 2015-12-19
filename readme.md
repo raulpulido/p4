@@ -1,27 +1,57 @@
-## Laravel PHP Framework
+# P4: NJEDA - iDMS Incentives Data Management System
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+## Live URL
+<http://p4.arpulido.me>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+## Description
+ 
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+iDMS is a web application for NJEDA (New Jersey Economic Development Authority) to receive, review and management the Incentives annual report for customers. Each customer (companies) has one or many projects (Incentives programs) and each year they have to submit the Annual Report for each project. The NJEDA officers have assign projects and they have to evaluate that the project is in compliance with the state regulations. 
+## Demo video
+<http://www.screencast.com/t/M6jMFBKo>
+* **Demo Accounts:**
+	* **Email:** `Jill@Harvard.edu` **Password:** `helloworld`
+	* **Email:** `Jamal@Harvard.edu` **Password:** `helloworld`
 
-## Official Documentation
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+## Details of Project
 
-## Contributing
+* **Eloquent Models:**
+	* "Company"
+		* projects(): hasMany('App\Project')
+	* "Officer"
+	 	* projects(): hasMany('App\Project')
+	 	* getOfficerForDropDown()
+	* "Year"
+	 	* projects(): belongsToMany('App\Project')
+	* "Project"
+		* company(): belongsTo('App\Company')
+		* officer(): belongsTo('App\Officer')
+		* years()  : belongsToMany('App\Year')->withTimestamps()
+		* getYearListAttribute()
+		
+* **Database Overview:**
+	* "companies" 		- Table containing company information data
+	* "officers" 		- Table containing NJEDA officers information data
+	* "years" 			- Table containing CPI perceint and Year  data
+	* "pojects"			- Table containing project information data
+	* "project year" 	- Pivol Table create for the many to many relations between projects and years
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+* ** Server Side Validation - Request:**
+	
+    *** Note: The system has implementation of view partials and form reuse, in order to reuse the requests for create and update events, I name them with the name of the model only instead of add "Create" or "Update" word. ***
+	  
+	* "CommpanyRequest" 		- Table containing NJEDA officers information data
+	* "OfficerRequest" 			- Table containing CPI perceint and Year  data
+	* "ProjectRequest"			- Table containing project information data
+	* "Year" 	- Pivol Table create for the many to many relations between projects and years
+	
+## Outside resources
+* **Laravel Packages:**
+	* laravelcollective/html
+	* barryvdh/laravel-debubar
+	* laracasts/flash
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-### License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+* **Other Code:**
+	* CSS Animate
+	* Jquery
