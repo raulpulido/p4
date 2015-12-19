@@ -27,6 +27,6 @@
 	<script>
 		$('div.alert').delay(4000).slideUp(400);
 	</script>
-	
+	@yield('footer')
 </body>
 </html>
